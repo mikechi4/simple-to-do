@@ -18,7 +18,7 @@ class ToDoInput extends React.Component {
     }
     render() {
         return(
-            <div className="toDoInput">
+            <div className='to-do-input'>
                 <form  onSubmit = {this.onSubmit}>
                     <label>
                         What do you need done?
