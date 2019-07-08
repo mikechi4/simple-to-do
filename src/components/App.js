@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ToDoInput from './ToDoInput';
-import InProgress from './InProgress';
 import ListContainer from './ListContainer';
 class App extends React.Component {
     state = {

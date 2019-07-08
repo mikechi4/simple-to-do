@@ -28,7 +28,7 @@ class ToDoInput extends React.Component {
                             onChange={this.setToDo}
                         />
                     </label>
-                    <button>Add</button>
+                    <button className='positive ui button'>Add</button>
                 </form>
             </div>
         )
