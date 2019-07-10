@@ -9,19 +9,19 @@ class ToDoInput extends React.Component {
     };
 
     setToDo = (event) => {
-        this.setState({value: event.target.value})
+        this.setState({value: event.target.value});
     }
 
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.addToDo(this.state.value);
+        this.props.addToDo({task: this.state.value, status: 'TO_DO'});
     }
     render() {
         return(
             <div className='to-do-input'>
-                <form  onSubmit = {this.onSubmit}>
+                <form  onSubmit = {this.onSubmit} style={{textAlign: 'center'}}>
                     <label>
-                        What do you need done?
+                        What do you need done? <br />
                         <input 
                             type="text" 
                             value={this.state.value} 
