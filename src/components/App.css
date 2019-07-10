@@ -1,0 +1,8 @@
+div.app.ui.container.segment { 
+    margin-top: 80px;
+}
+
+.app__add-to-do, .app__body {
+    display: flex;
+    justify-content: center;
+}
