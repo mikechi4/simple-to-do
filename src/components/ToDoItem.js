@@ -6,8 +6,13 @@ class ToDoItem extends React.Component {
     super();
 
     this.state = {
-      showMenu: false
+      showMenu: false,
+      itemStatus: null
     };
+  }
+
+  componentDidMount() {
+    this.setState({ itemStatus: this.props.toDoItem.status });
   }
 
   showMenu = event => {
@@ -28,6 +33,9 @@ class ToDoItem extends React.Component {
             <div className="to-do-item__popup__header">
               Move to:
               <button
+                className={
+                  this.state.itemStatus === "TO_DO" ? "hidden" : "show"
+                }
                 onClick={() =>
                   this.props.moveItem(this.props.toDoItem, "TO_DO")
                 }
@@ -35,6 +43,9 @@ class ToDoItem extends React.Component {
                 To Do
               </button>
               <button
+                className={
+                  this.state.itemStatus === "IN_PROGRESS" ? "hidden" : "show"
+                }
                 onClick={() =>
                   this.props.moveItem(this.props.toDoItem, "IN_PROGRESS")
                 }
@@ -42,6 +53,9 @@ class ToDoItem extends React.Component {
                 In Progress
               </button>
               <button
+                className={
+                  this.state.itemStatus === "COMPLETED" ? "hidden" : "show"
+                }
                 onClick={() =>
                   this.props.moveItem(this.props.toDoItem, "COMPLETED")
                 }
