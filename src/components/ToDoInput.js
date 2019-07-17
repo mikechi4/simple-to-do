@@ -1,5 +1,6 @@
 import React from "react";
 
+import "./ToDoInput.css";
 class ToDoInput extends React.Component {
   constructor(props) {
     super(props);
@@ -20,16 +21,20 @@ class ToDoInput extends React.Component {
   render() {
     return (
       <div className="to-do-input">
-        <form onSubmit={this.onSubmit} style={{ textAlign: "center" }}>
+        <form onSubmit={this.onSubmit} className="ui form">
           <label>
             What do you need done? <br />
+          </label>
+          <div className="to-do-input__form-input">
             <input
               type="text"
               value={this.state.value}
               onChange={this.setToDo}
             />
-          </label>
-          <button className="positive ui button">Add</button>
+            <button className="positive ui button" disabled={!this.state.value}>
+              Add
+            </button>
+          </div>
         </form>
       </div>
     );
