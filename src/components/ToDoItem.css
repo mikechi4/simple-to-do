@@ -1,3 +1,16 @@
-.to-do-item:hover {
+.to-do-item__menu:hover {
     cursor: pointer;
+}
+
+.to-do-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: relative;
+}
+
+div .ui .segment .to-do-item__popup {
+    position: absolute;
+    right: 0;
+    top: 20px;
 }
