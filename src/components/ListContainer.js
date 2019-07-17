@@ -6,7 +6,12 @@ const ListContainer = props => {
   const renderList = () => {
     return props.items.map(item => {
       return (
-        <ToDoItem toDoItem={item} key={item.task} moveItem={props.moveItem} />
+        <ToDoItem
+          toDoItem={item}
+          key={item.task}
+          moveItem={props.moveItem}
+          deleteItem={props.deleteItem}
+        />
       );
     });
   };

@@ -29,6 +29,14 @@ class App extends React.Component {
     });
   };
 
+  deleteItem = item => {
+    let currList = this.getListState(item.status);
+    let itemCopy = Object.assign({}, item);
+    this.setState({
+      [currList]: this.removeItemFromList(this.state[currList], itemCopy)
+    });
+  };
+
   getListState = status => {
     let listState;
     switch (status) {
@@ -57,7 +65,7 @@ class App extends React.Component {
         <div className="app__add-to-do">
           <ToDoInput addToDo={this.addToDoItem} />
         </div>
-        <div class="ui divider" />
+        <div className="ui divider" />
         <div className="app__body ui grid">
           <div className="five wide column">
             <ListContainer
@@ -65,6 +73,7 @@ class App extends React.Component {
               items={this.state.toDoItems}
               className="four wide column"
               moveItem={this.moveItem}
+              deleteItem={this.deleteItem}
             />
           </div>
           <div className="five wide column">
@@ -73,6 +82,7 @@ class App extends React.Component {
               items={this.state.inProgressItems}
               className="four wide column"
               moveItem={this.moveItem}
+              deleteItem={this.deleteItem}
             />
           </div>
           <div className="five wide column">
@@ -81,6 +91,7 @@ class App extends React.Component {
               items={this.state.completedItems}
               className="four wide column"
               moveItem={this.moveItem}
+              deleteItem={this.deleteItem}
             />
           </div>
         </div>

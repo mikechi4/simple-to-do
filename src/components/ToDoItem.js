@@ -62,6 +62,15 @@ class ToDoItem extends React.Component {
               >
                 Completed
               </button>
+              <div className="ui divider" />
+              <button
+                class="negative ui button"
+                onClick={() => {
+                  this.props.deleteItem(this.props.toDoItem);
+                }}
+              >
+                <i className="fa fa-trash" />
+              </button>
             </div>
           </div>
         ) : null}
