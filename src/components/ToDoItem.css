@@ -6,13 +6,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    position: relative;
+    position: unset !important;
 }
 
 div .ui .segment .to-do-item__popup {
     position: absolute;
     right: 0;
-    top: 20px;
+    text-align: center;
 }
 
 .hidden {
