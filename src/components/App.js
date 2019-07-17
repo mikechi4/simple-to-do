@@ -17,51 +17,33 @@ class App extends React.Component {
 
   moveItem = (item, selectedList) => {
     // get original list of where the item lives
-    let currList = this.getOriginalList(item.status);
+    let currList = this.getListState(item.status);
+    // get new list of where item is being moved
+    let newList = this.getListState(selectedList);
 
     let itemCopy = Object.assign({}, item);
-    switch (selectedList) {
-      case "TO_DO":
-        itemCopy.status = selectedList;
-        this.setState({
-          [currList]: this.removeItemFromList(this.state[currList], itemCopy),
-          toDoItems: [...this.state.toDoItems, itemCopy]
-        });
-        break;
-      case "IN_PROGRESS":
-        itemCopy.status = selectedList;
-        this.setState({
-          [currList]: this.removeItemFromList(this.state[currList], itemCopy),
-          inProgressItems: [...this.state.inProgressItems, itemCopy]
-        });
-        break;
-      case "COMPLETED":
-        itemCopy.status = selectedList;
-        this.setState({
-          [currList]: this.removeItemFromList(this.state[currList], itemCopy),
-          completedItems: [...this.state.completedItems, itemCopy]
-        });
-        break;
-      default:
-        return;
-    }
+    itemCopy.status = selectedList;
+    this.setState({
+      [currList]: this.removeItemFromList(this.state[currList], itemCopy),
+      [newList]: [...this.state[newList], itemCopy]
+    });
   };
 
-  getOriginalList = currentStatus => {
-    let status;
-    switch (currentStatus) {
+  getListState = status => {
+    let listState;
+    switch (status) {
       case "TO_DO":
-        status = "toDoItems";
+        listState = "toDoItems";
         break;
       case "IN_PROGRESS":
-        status = "inProgressItems";
+        listState = "inProgressItems";
         break;
       case "COMPLETED":
-        status = "completedItems";
+        listState = "completedItems";
         break;
     }
 
-    return status;
+    return listState;
   };
   removeItemFromList = (list, item) => {
     let newList = [...list];
@@ -70,7 +52,6 @@ class App extends React.Component {
     });
   };
   render() {
-    console.log(this.state);
     return (
       <div className="app ui container segment">
         <div className="app__add-to-do">
