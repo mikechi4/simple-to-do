@@ -1,24 +1,30 @@
 .to-do-item__menu:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .to-do-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    position: unset !important;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: baseline;
+  position: unset !important;
 }
 
 div .ui .segment .to-do-item__popup {
-    position: absolute;
-    right: 0;
-    text-align: center;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
+}
+
+.to-do-item__btn {
+  margin: 3px 0 !important;
 }

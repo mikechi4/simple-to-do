@@ -30,48 +30,44 @@ class ToDoItem extends React.Component {
         <i class="fa fa-ellipsis-v to-do-item__menu" onClick={this.showMenu} />
         {this.state.showMenu ? (
           <div className="ui segment raised to-do-item__popup">
-            <div className="to-do-item__popup__header">
-              Move to:
-              <button
-                className={
-                  this.state.itemStatus === "TO_DO" ? "hidden" : "show"
-                }
-                onClick={() =>
-                  this.props.moveItem(this.props.toDoItem, "TO_DO")
-                }
-              >
-                To Do
-              </button>
-              <button
-                className={
-                  this.state.itemStatus === "IN_PROGRESS" ? "hidden" : "show"
-                }
-                onClick={() =>
-                  this.props.moveItem(this.props.toDoItem, "IN_PROGRESS")
-                }
-              >
-                In Progress
-              </button>
-              <button
-                className={
-                  this.state.itemStatus === "COMPLETED" ? "hidden" : "show"
-                }
-                onClick={() =>
-                  this.props.moveItem(this.props.toDoItem, "COMPLETED")
-                }
-              >
-                Completed
-              </button>
-              <div className="ui divider" />
-              <button
-                class="negative ui button"
-                onClick={() => {
-                  this.props.deleteItem(this.props.toDoItem);
-                }}
-              >
-                <i className="fa fa-trash" />
-              </button>
-            </div>
+            Move to:
+            <button
+              className={`ui button to-do-item__btn ${
+                this.state.itemStatus === "TO_DO" ? "hidden" : "show"
+              }`}
+              onClick={() => this.props.moveItem(this.props.toDoItem, "TO_DO")}
+            >
+              To Do
+            </button>
+            <button
+              className={`ui button to-do-item__btn ${
+                this.state.itemStatus === "TO_DO" ? "hidden" : "show"
+              }`}
+              onClick={() =>
+                this.props.moveItem(this.props.toDoItem, "IN_PROGRESS")
+              }
+            >
+              In Progress
+            </button>
+            <button
+              className={`ui button to-do-item__btn ${
+                this.state.itemStatus === "TO_DO" ? "hidden" : "show"
+              }`}
+              onClick={() =>
+                this.props.moveItem(this.props.toDoItem, "COMPLETED")
+              }
+            >
+              Completed
+            </button>
+            <div className="ui divider" />
+            <button
+              class="negative ui button to-do-item__btn"
+              onClick={() => {
+                this.props.deleteItem(this.props.toDoItem);
+              }}
+            >
+              <i className="fa fa-trash" />
+            </button>
           </div>
         ) : null}
       </div>
